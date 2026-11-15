@@ -29,7 +29,7 @@
   <ItemGroup Label="Aspire">
     <PackageVersion Include="Aspire.Azure.Data.Tables" Version="13.6.4" />
     <PackageVersion Include="Aspire.Azure.Storage.Blobs" Version="13.6.4" />
-    <PackageVersion Include="Aspire.Hosting.Azure.AppContainers" Version="13.6.4" />
+    <PackageVersion Include="Aspire.Hosting.Azure.AppContainers" Version="13.6.5" />
     <PackageVersion Include="Aspire.Hosting.Azure.Network" Version="13.6.4" />
     <PackageVersion Include="Aspire.Hosting.Azure.Storage" Version="13.6.4" />
     <PackageVersion Include="Aspire.Hosting.Azure.ApplicationInsights" Version="13.6.4" />
