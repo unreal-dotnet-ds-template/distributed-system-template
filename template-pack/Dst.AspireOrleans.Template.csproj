@@ -4,7 +4,7 @@
     <!-- Package identity -->
     <PackageId>Dst.AspireOrleans.Template</PackageId>
     <PackageType>Template</PackageType>
-    <Title>Aspire + Orleans Distribution System Template</Title>
+    <Title>Aspire + Orleans Distributed System Template</Title>
     <Description>
       A production-ready dotnet new template for distributed systems using .NET Aspire for
       orchestration and Microsoft Orleans for actor-based business logic. Includes an Orleans
