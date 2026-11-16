@@ -3,7 +3,7 @@
   "author": "Dst Template",
   "classifications": ["Aspire", "Orleans", "Distributed", "Cloud"],
   "identity": "Dst.AspireOrleans.Template",
-  "name": "Aspire + Orleans Distribution System",
+  "name": "Aspire + Orleans Distributed System",
   "shortName": "dst-aspire-orleans",
   "description": "A production-ready distributed system template using .NET Aspire for orchestration and Microsoft Orleans for actor-based business logic.",
   "tags": {

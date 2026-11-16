@@ -1,4 +1,4 @@
-# Aspire + Orleans Distribution System Template
+# Aspire + Orleans Distributed System Template
 
 A production-ready `dotnet new` template for building distributed systems with **.NET Aspire** for cloud-native orchestration and **Microsoft Orleans** for virtual actor business logic.
 
