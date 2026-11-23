@@ -1,4 +1,5 @@
 using Aspire.Hosting;
+using Aspire.Hosting.Dotnet;
 
 namespace Dst.HostApplication.Tests;
 
@@ -13,7 +14,7 @@ public class WebTests
         var appHost = await DistributedApplicationTestingBuilder
             .CreateAsync<Projects.Dst_Aspires_AppHost>(cancellationToken);
 
-        var webApi = appHost.Resources.OfType<ProjectResource>().Single(resource => resource.Name == "Dst-web-api");
+        var webApi = appHost.Resources.OfType<DotnetProjectResource>().Single(resource => resource.Name == "Dst-web-api");
         appHost.CreateResourceBuilder(webApi)
             .WithEnvironment("SyntheticGeneration__StartupDelay", "00:00:00")
             .WithEnvironment("SyntheticGeneration__RequestsPerSecond", "4");

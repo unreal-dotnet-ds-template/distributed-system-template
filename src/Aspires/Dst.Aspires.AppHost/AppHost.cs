@@ -16,7 +16,7 @@ var orleans = builder.AddOrleans("Dst-orleansCluster")
     .WithGrainStorage("DefaultStore", orleansGrainState);
 
 // orleans silo -> backend. you run logic here.
-var webOrleansSilo = builder.AddProject<Projects.Dst_OrleansSilo_WebApp>("Dst-web-orleans-silo")
+var webOrleansSilo = builder.AddDotnetProject("Dst-web-orleans-silo", "../../OrleansSilo/Dst.OrleansSilo.WebApp/Dst.OrleansSilo.WebApp.csproj")
     .WithReference(orleans)
     .WithHttpHealthCheck("/health", endpointName: "http")
     .WithTelemetry(
@@ -28,7 +28,7 @@ var webOrleansSilo = builder.AddProject<Projects.Dst_OrleansSilo_WebApp>("Dst-we
     .WithReplicas(1);
 
 // orleans client -> frontend. you call grains here.
-var webApi = builder.AddProject<Projects.Dst_WebApiApp>("Dst-web-api")
+var webApi = builder.AddDotnetProject("Dst-web-api", "../../Dst.WebApiApp/Dst.WebApiApp.csproj")
     .WithReference(orleans.AsClient()) // client-only reference
     .WithExternalHttpEndpoints()
     .WithTelemetry(

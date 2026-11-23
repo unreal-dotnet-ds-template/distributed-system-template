@@ -1,5 +1,6 @@
 #pragma warning disable ASPIREAZURE003 // Aspire Azure networking APIs are still evaluation-only
 using Aspire.Hosting.Azure;
+using Aspire.Hosting.Dotnet;
 using Azure.Provisioning;
 using Azure.Provisioning.AppContainers;
 using Azure.Provisioning.ApplicationInsights;
@@ -20,8 +21,8 @@ internal static class TelemetryResourceHelper
 
     private static IResourceBuilder<ContainerResource>? _otelCollector;
 
-    private static IResourceBuilder<ProjectResource> WithLocalSetup(
-        this IResourceBuilder<ProjectResource> project)
+    private static IResourceBuilder<DotnetProjectResource> WithLocalSetup(
+        this IResourceBuilder<DotnetProjectResource> project)
     {
         if(_otelCollector is not null)
         {
@@ -74,8 +75,8 @@ internal static class TelemetryResourceHelper
 
     private static IResourceBuilder<AzureApplicationInsightsResource>? _applicationInsights;
 
-    private static IResourceBuilder<ProjectResource> WithAzureSetup(
-        this IResourceBuilder<ProjectResource> project,
+    private static IResourceBuilder<DotnetProjectResource> WithAzureSetup(
+        this IResourceBuilder<DotnetProjectResource> project,
         IResourceBuilder<AzureTableStorageResource> orleansClustering,
         IResourceBuilder<AzureBlobStorageResource> orleansGrainState)
     {
@@ -131,8 +132,8 @@ internal static class TelemetryResourceHelper
         return project;
     }
 
-    public static IResourceBuilder<ProjectResource> WithTelemetry(
-        this IResourceBuilder<ProjectResource> project,
+    public static IResourceBuilder<DotnetProjectResource> WithTelemetry(
+        this IResourceBuilder<DotnetProjectResource> project,
         IResourceBuilder<AzureTableStorageResource> orleansClustering,
         IResourceBuilder<AzureBlobStorageResource> orleansGrainState)
     {

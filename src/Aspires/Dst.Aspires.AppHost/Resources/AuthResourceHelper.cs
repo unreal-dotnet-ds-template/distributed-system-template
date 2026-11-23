@@ -1,4 +1,5 @@
 using Aspire.Hosting.Azure;
+using Aspire.Hosting.Dotnet;
 using Azure.Provisioning;
 using Azure.Provisioning.Expressions;
 using Azure.Provisioning.Roles;
@@ -7,8 +8,8 @@ namespace Dst.Aspires.AppHost.Resources;
 
 internal static class AuthResourceHelper
 {
-    private static IResourceBuilder<ProjectResource> WithAuth(
-        this IResourceBuilder<ProjectResource> project,
+    private static IResourceBuilder<DotnetProjectResource> WithAuth(
+        this IResourceBuilder<DotnetProjectResource> project,
         string containerApp,
         string identityName,
         string identity,
@@ -63,8 +64,8 @@ internal static class AuthResourceHelper
         return project;
     }
 
-    public static IResourceBuilder<ProjectResource> WithSiloAuth(
-        this IResourceBuilder<ProjectResource> project)
+    public static IResourceBuilder<DotnetProjectResource> WithSiloAuth(
+        this IResourceBuilder<DotnetProjectResource> project)
     {
         return project.WithAuth(
             containerApp: "web-orleans-silo-ca",
@@ -74,8 +75,8 @@ internal static class AuthResourceHelper
             localConfigKeys: Array.Empty<string>());
     }
 
-    public static IResourceBuilder<ProjectResource> WithWebApiAuth(
-        this IResourceBuilder<ProjectResource> project)
+    public static IResourceBuilder<DotnetProjectResource> WithWebApiAuth(
+        this IResourceBuilder<DotnetProjectResource> project)
     {
         // Local: forwarded only when provided in AppHost configuration (e.g. to try JwtBearer locally).
         var localConfigKeys = new[]
